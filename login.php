@@ -12,7 +12,6 @@ if ($imap != NULL){
     echo "Logged In";
     session_start();
     $_SESSION['username']=$username;
-
 }else{
     ?>
         <script type="text/javascript">

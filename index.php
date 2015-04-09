@@ -10,6 +10,7 @@
 <body id='body'>
     <div class="nav">
         <form action="login.php" method="post">
+            <ul class="left"></ul>
             <ul class="right">
                 <li>
                     <input type="submit" class="submit"> </li>
