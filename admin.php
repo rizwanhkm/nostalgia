@@ -1,6 +1,14 @@
 <?php
-session_start();
-session_destroy();
+$adminusername = $_POST['username'];
+$adminpassword = $_POST['password'];
+if(strcmp($username,"")==0){
+    echo $username;
+    echo $password;
+    $adminusername=$_SESSION['username'];
+    $adminpassword=$_SESSION['password'];
+}
+include 'functions.php';
+if (!isAdmin($adminusername, $adminpassword)){
 ?>
 <html>
 
@@ -12,7 +20,7 @@ session_destroy();
 
 <body id='body'>
     <div class="nav">
-        <form action="login.php" method="post">
+        <form action="admin.php" method="post">
             <ul class="index">
                 <li>
                     <input type="submit" class="submit"> </li>
@@ -37,3 +45,15 @@ session_destroy();
 </body>
 
 </html>
+<?php
+}else {
+
+    session_start();
+     $_SESSION['username']=$adminusername;
+     $_SESSION['password']=$adminpassword;
+    header("Location:adminpanel.php");
+
+
+
+      }
+?>

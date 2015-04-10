@@ -9,6 +9,7 @@
     font-family: 'robotolight';
     src: url(./roboto/Roboto-Light.ttf);
 }
+
 body {
     padding: 0;
     margin: 0;
@@ -17,12 +18,22 @@ body {
     font-size: 13px;
     font-weight: 100;
     font-family: robotothin;
+}
 
+ul {
+    position: relative;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: table-cell;
+    vertical-align: middle;
 }
 
 a,
 a:visited,
 a:active {
+    text-decoration: none;
     color: #4486ba;
     font-weight: 100;
 }
@@ -31,7 +42,7 @@ a:active {
     margin: 2px;
     border: 1px solid #4486ba;
     background: rgba(0, 0, 0, 0);
-    border-radius: 7px;
+    border-radius: 3px;
     box-sizing: border-box;
     font-size: 12px;
     height: 35px;
@@ -69,7 +80,7 @@ a:active {
 
 .nav {
     width: 100%;
-    height: 65px;
+    height: 85px;
 }
 
 .nav ul {
@@ -82,30 +93,23 @@ a:active {
     width: 120px;
 }
 
-ul {
-    position: relative;
-    height: 100%;
-    width: 50%;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: table-cell;
-    vertical-align: middle;
+.nav .right {
+    width: 30%;
 }
 
-a {
-    color: #ff0000;
-    text-decoration: none;
+.nav .left {
+    width: 70%;
 }
 
-.right li {
+.right li,
+.index li {
     font-family: robotolight;
     display: table-cell;
     vertical-align: middle;
     line-height: 60px;
     margin: 10px;
     float: right;
-/*    border: 1px solid #000;*/
+    /*    border: 1px solid #000;*/
 }
 
 .left li {
@@ -115,7 +119,7 @@ a {
 }
 
 .content {
-    width: 100%;
+margin: auto;
     min-height: 515px;
     display: table;
     text-align: center;
@@ -147,13 +151,14 @@ a {
     border-color: #ffffff;
 }
 /*--------------------------------------------------------dashbord css---------------------------------------------------*/
-.heading{
+
+.heading {
     margin-left: 30px;
-line-height: 60px;
+    line-height: 60px;
     font-size: 30px;
     font-weight: 100;
-
 }
+
 .logobig {
     vertical-align: middle;
 }
@@ -170,20 +175,29 @@ footer {
     font-size: 12px;
     width: 100%;
     font-weight: 100;
-    height: 40px;
+    height: 20px;
     position: relative;
     margin-bottom: 0;
     text-align: center;
     display: table;
 }
 /*----------------------------------search.css--------------------------------*/
+.halfwidth{
+    position: relative;
+    width: 50%;
+    float: left;
 
+}
 .searchResults {
     margin-top: 20px;
     border-collapse: collapse;
     margin-left: auto;
     margin-right: auto;
     table-layout: fixed;
+}
+.searchResultsMsg {
+    font-family: robotolight;
+    font-size: 14px;
 }
 
 .searchResults tr:nth-child(odd) td {
@@ -215,28 +229,52 @@ footer {
 .searchResults div {
     font-family: robotolight;
     font-size: 13px;
-    width: 170px;
+    width: 200px;
     word-wrap: break-word;
     text-align: center;
 }
-.awards{
-/*    border: 1px solid #000;*/
+
+.awards {
+    /*    border: 1px solid #000;*/
+
+    display: grid;
 }
-.awards li img{
+
+.awards div {
+    /*    border: 1px solid #000;*/
+
+    margin: auto;
+    width: 1300px;
+    text-align: center;
+}
+
+.awards li img {
     height: 60px;
-    width:60px;
+    width: 60px;
 }
+
 .awards li {
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 30px;
     line-height: 50px;
-    height: 80px;
-    width: 80px;
-/*    border: 1px solid #000;*/
+    height: 85px;
+    width: 100px;
+    /*    border: 1px solid #000;*/
 }
 
-.mesasge {
+.message {
     text-align: center;
     line-height: 40px;
+        font-family: robotolight;
+    font-size: 14px;
 }
+
+.index {
+    width: 100%;
+}
+.adminpanel {
+    display: table-cell;
+    vertical-align: middle;
+}
+

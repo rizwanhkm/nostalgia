@@ -1,8 +1,9 @@
 <?php
-        session_start();
-        if(!isset($_SESSION['username']))
-        {
-            ?>
+session_start();
+$username = $_SESSION['username'];
+$password = $_SESSION['password'];
+if (!isAdmin($username, $password)){
+    ?>
                     <script type="text/javascript">
                         function redirect()
                             {
@@ -11,6 +12,5 @@
                         alert("You have to login to view this page");
                         setTimeout(redirect(), 1000);
                     </script>
-            <?php
-
-        }
+<?php
+}

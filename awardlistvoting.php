@@ -6,18 +6,15 @@ $query="SELECT * FROM `$admin` where `settings` ='voting' ";
     $result = $db->query($query) or die ('There was an error during Database Entry [' . $db->error . ']');
     $row = $result->fetch_assoc();
 
-    if ($row['value']==1){
-        header("Location:awardlistvoting.php");
-    }
-    if (isFinalYear($username)){
-        header("Location:logout.php");
+    if ($row['value']==0){
+        header("Location:index.php");
     }
 
 ?>
 <html>
 
 <head>
-    <title>Award Nominations</title>
+    <title>Award Voting</title>
     <link rel="stylesheet" href="style1.css" />
     <link rel="stylesheet" href="leaderboard.css" />
     <script src="jquery1.11.2.js"></script>
@@ -30,7 +27,7 @@ $(document).ready(function () {
     });
     $(".awards li").on("click", function(){
         var award = encodeURIComponent( $(this).text());
-        window.location = "nominate.php?award="+award;
+        window.location = "vote.php?award="+award;
     });
 });
 
@@ -43,7 +40,7 @@ $(document).ready(function () {
     <div class="nav">
         <ul class="left">
             <li><img src="./images/nostlogo.png"></li>
-            <li class="heading" id="heading"a>Award Nomination </li>
+            <li class="heading" id="heading"a>Award Voting </li>
         </ul>
         <ul class="right">
             <li ><a href="logout.php">Logout</a></li>
@@ -51,7 +48,7 @@ $(document).ready(function () {
                 <?php echo $_SESSION['username']; ?> </li>
         </ul>
     </div>
-<section class="message">Select an Award to Nominate</section>
+<section class="message">Select an Award to Vote</section>
     <div class="content">
 <ul class="awards left">
     <div>
