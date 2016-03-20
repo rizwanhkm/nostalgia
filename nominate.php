@@ -15,7 +15,8 @@ $query="SELECT * FROM `$admin` where `settings` ='voting' ";
     if ($row['value']==1){
         header("Location:awardlistvoting.php");
     }
-    if (isFinalYear($username)){
+    $username = $_SESSION['username'];
+    if (!isFinalYear($username)){
         header("Location:logout.php");
     }
 
