@@ -16,9 +16,9 @@ function isFinalYear($username){
     require 'config.php';
     $query="SELECT * FROM `$rollnodetails` where `rollNo` ='$username'";
     $result = $db->query($query) or die ('There was an error during Database Entry [' . $db->error . ']');
-    echo $query;
-    echo $username;
-    echo $result->num_rows;
+    // echo $query;
+    // echo $username;
+    // echo $result->num_rows;
     if ($result->num_rows==0){
          return 0;
      }else{
