@@ -65,7 +65,7 @@ $(document).ready(function () {
 
     </div>
 <footer>
-        <div class="valign-wrapper">Developed by Delta 2015</div>
+        <div class="valign-wrapper">(C) Nostalia 2016 | MADE WITH ❤ BY <a href="https://www.facebook.com/delta.nit.trichy/">DELTA FORCE</a></div>
     </footer>
 
 </body>

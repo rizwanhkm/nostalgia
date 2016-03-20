@@ -9,6 +9,10 @@
     font-family: 'robotolight';
     src: url(./roboto/Roboto-Light.ttf);
 }
+@font-face {
+    font-family: 'robotoregular';
+    src: url(./roboto/Roboto-Regular.ttf);
+}
 
 body {
     padding: 0;
@@ -17,9 +21,11 @@ body {
     height: 100%;
     font-size: 13px;
     font-weight: 100;
-    font-family: robotothin;
+    font-family: robotoregular;
 }
-
+li{
+  cursor: pointer;
+}
 ul {
     position: relative;
     height: 100%;
@@ -157,6 +163,7 @@ margin: auto;
     line-height: 60px;
     font-size: 30px;
     font-weight: 100;
+    font-family: robotolight;
 }
 
 .logobig {
@@ -250,7 +257,7 @@ footer {
 
 .awards li img {
     height: 60px;
-    width: 60px;
+    width: 70px;
 }
 
 .awards li {
@@ -259,15 +266,15 @@ footer {
     margin-bottom: 30px;
     line-height: 50px;
     height: 85px;
-    width: 100px;
+    width: 101px;
     /*    border: 1px solid #000;*/
 }
 
 .message {
     text-align: center;
     line-height: 40px;
-        font-family: robotolight;
-    font-size: 14px;
+    font-family: robotolight;
+    font-size: 16px;
 }
 
 .index {
@@ -277,4 +284,3 @@ footer {
     display: table-cell;
     vertical-align: middle;
 }
-

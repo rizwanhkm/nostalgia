@@ -1,11 +1,15 @@
 <?php
-$adminusername = $_POST['username'];
-$adminpassword = $_POST['password'];
-if(strcmp($username,"")==0){
-    echo $username;
-    echo $password;
-    $adminusername=$_SESSION['username'];
-    $adminpassword=$_SESSION['password'];
+$adminusername="";
+$adminpassword="";
+if (isset($_POST['username'])){
+    $adminusername =  $_POST['username'];
+    $adminpassword = $_POST['password'];
+    if(strcmp($adminusername,"")==0){
+      echo $adminusername;
+      echo $adminpassword;
+      $adminusername=$_SESSION['username'];
+      $adminpassword=$_SESSION['password'];
+    }
 }
 include 'functions.php';
 if (!isAdmin($adminusername, $adminpassword)){
@@ -40,7 +44,7 @@ if (!isAdmin($adminusername, $adminpassword)){
     </div>
     </div>
     <footer>
-        <div class="valign-wrapper">Developed by Delta 2015</div>
+        <div class="valign-wrapper">(C) Nostalia 2016 | MADE WITH ❤ BY <a href="https://www.facebook.com/delta.nit.trichy/">DELTA FORCE</a></div>
     </footer>
 </body>
 
