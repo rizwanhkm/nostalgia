@@ -1,6 +1,6 @@
 var rollNoDetails;
 function search(searchterm, rollNo) {
-    console.log(rollNo.length);
+    // console.log(rollNo.length);
     var regexp = new RegExp(searchterm, "i"),
         i,
         j,
@@ -20,15 +20,18 @@ function search(searchterm, rollNo) {
             }
         }
     }
-    console.log(results.length);
+    // console.log(results.length);
     return results;
+}
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 function printResults(results, number) {
     var i,
         j,
         row = "";
-    console.log(results);
+    // console.log(results);
     if (results.length === 0) {
         $("#searchResultsMsg" + number).show();
         $("#searchResultsMsg" + number).html("No Results Found");
@@ -37,17 +40,18 @@ function printResults(results, number) {
         $("#searchResultsMsg" + number).hide();
         $("#searchResults" + number).find("tbody").empty();
         row = "<tr>";
-        for (i = 0; i < Object.keys(rollNoDetails[i]).length - 1; i = i + 1) {
-            column = Object.keys(rollNoDetails[0])[i];
+        var student = rollNoDetails[0];
+        var noofcoloumns = Object.keys(student).length;
+        for (i = 0; i < noofcoloumns - 1; i = i + 1) {
+            column = capitalizeFirstLetter(Object.keys(student)[i]);
             row += "<td><div>" + column + "</div></td>";
         }
         row += "</tr>";
         $("#searchResults" + number).append(row);
         for (i = 0; i < results.length; i = i + 1) {
             row = "<tr>";
-            console.log(Object.keys(rollNoDetails[0]).length);
-            for (j = 0; j < Object.keys(rollNoDetails[0]).length - 1; j = j + 1) {
-                column = Object.keys(rollNoDetails[0])[j];
+            for (j = 0; j < noofcoloumns - 1; j = j + 1) {
+                column = Object.keys(student)[j];
                 row += "<td><div>" + results[i][column] + "</div></td>";
             }
             row += "</tr>";
@@ -102,24 +106,24 @@ $(document).ready(function () {
         method: 'GET'
     }).done(function (data) {
         data = JSON.parse(data);
-        console.log(data);
+        // console.log(data);
         rollNoDetails = data;
         if (awardFor == 'M' || awardFor == 'F' || awardFor == 'C') {
         var rollNo = [],
             counter;
         counter = 0;
-        console.log(awardFor);
+        // console.log(awardFor);
 
         for (var i = 0; i < rollNoDetails.length; i++) {
             if ((rollNoDetails[i].gender == awardFor) || (awardFor == 'C')) {
-                console.log(rollNoDetails[i].gender);
+                // console.log(rollNoDetails[i].gender);
                 rollNo[counter++] = rollNoDetails[i];
             }
         }
-            console.log(rollNo.length);
+            // console.log(rollNo.length);
         searchfunction(1, rollNo);
     } else {
-        console.log("asdf");
+        // console.log("asdf");
         var rollNo1 = [],
             rollNo2 = [],
             counter1, counter2;
