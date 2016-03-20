@@ -11,6 +11,7 @@ session_destroy();
 </head>
 
 <body id='body'>
+  <div class="container">
     <div class="nav">
         <form action="login.php" method="post">
             <ul class="index">
@@ -31,9 +32,10 @@ session_destroy();
         </div>
     </div>
     </div>
-    <footer>
-        <div class="valign-wrapper">(C) Nostalia 2016 | MADE WITH ❤ BY <a href="https://www.facebook.com/delta.nit.trichy/">DELTA FORCE</a></div>
-    </footer>
+    <div class="footer">
+        <div class="valign-wrapper">© Nostalia 2016 | MADE WITH <span style="color:#ef5350 ">  ❤</span> by <a href="https://www.facebook.com/delta.nit.trichy/">DELTA FORCE</a></div>
+    </div>
+</div>
 </body>
 
 </html>

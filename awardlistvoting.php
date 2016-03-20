@@ -35,6 +35,7 @@ $(document).ready(function () {
 </head>
 
 <body id='body'>
+  <div class="container">
     <?php include 'session-check.php'; require 'connect.php'; ?>
 
     <div class="nav">
@@ -64,9 +65,10 @@ $(document).ready(function () {
         </ul>
 
     </div>
-<footer>
-        <div class="valign-wrapper">(C) Nostalia 2016 | MADE WITH ❤ BY <a href="https://www.facebook.com/delta.nit.trichy/">DELTA FORCE</a></div>
-    </footer>
+<div class="footer">
+        <div class="valign-wrapper">© Nostalia 2016 | MADE WITH <span style="color:#ef5350 ">  ❤</span> BY <a href="https://www.facebook.com/delta.nit.trichy/">DELTA FORCE</a></div>
+</div>
+</div>
 
 </body>
 

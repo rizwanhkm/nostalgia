@@ -23,6 +23,7 @@ if (!isAdmin($adminusername, $adminpassword)){
 </head>
 
 <body id='body'>
+  <div class="container">
     <div class="nav">
         <form action="admin.php" method="post">
             <ul class="index">
@@ -43,9 +44,10 @@ if (!isAdmin($adminusername, $adminpassword)){
         </div>
     </div>
     </div>
-    <footer>
-        <div class="valign-wrapper">(C) Nostalia 2016 | MADE WITH ❤ BY <a href="https://www.facebook.com/delta.nit.trichy/">DELTA FORCE</a></div>
-    </footer>
+    <div class="footer">
+            <div class="valign-wrapper">© Nostalia 2016 | MADE WITH <span style="color:#ef5350 ">  ❤</span> BY <a href="https://www.facebook.com/delta.nit.trichy/">DELTA FORCE</a></div>
+    </div>
+  </div>
 </body>
 
 </html>

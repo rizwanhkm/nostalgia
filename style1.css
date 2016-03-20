@@ -18,6 +18,7 @@ body {
     padding: 0;
     margin: 0;
     position: relative;
+    min-height: 100%;
     height: 100%;
     font-size: 13px;
     font-weight: 100;
@@ -125,10 +126,12 @@ a:active {
 }
 
 .content {
-margin: auto;
-    min-height: 515px;
+    margin: auto;
+    min-height: 500px;
+    /*height: 100%;*/
     display: table;
     text-align: center;
+    padding-bottom: 80px;
 }
 
 .login_message,
@@ -176,17 +179,23 @@ margin: auto;
     width: 100%;
     vertical-align: middle;
 }
-
-footer {
-    color: #000;
-    font-size: 12px;
+.container{
+  position: relative;
+  min-height: 100%;
+}
+.footer {
+    /*background: #e7e9e8;*/
+    background: #000;
+    color: #fff;
+    font-size: 13px;
     width: 100%;
     font-weight: 100;
     height: 20px;
-    position: relative;
-    margin-bottom: 0;
+    position: absolute;
+    bottom: 0;
     text-align: center;
     display: table;
+    line-height: 50px;
 }
 /*----------------------------------search.css--------------------------------*/
 .halfwidth{

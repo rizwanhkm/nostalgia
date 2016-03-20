@@ -15,6 +15,7 @@ require 'admin-check.php';
 </head>
 
 <body id='body'>
+  <div class="container">
 
     <div class="nav">
         <ul class="left">
@@ -86,10 +87,10 @@ $(document).ready(function () {
 
             </div>
  </div>
-<footer>
-        <div class="valign-wrapper">(C) Nostalia 2016 | MADE WITH ❤ BY <a href="https://www.facebook.com/delta.nit.trichy/">DELTA FORCE</a></div>
-    </footer>
-
+<div class="footer">
+        <div class="valign-wrapper">© Nostalia 2016 | MADE WITH <span style="color:#ef5350 ">  ❤</span> by <a href="https://www.facebook.com/delta.nit.trichy/">DELTA FORCE</a></div>
+    </div>
+</div>
 </body>
 
 </html>
