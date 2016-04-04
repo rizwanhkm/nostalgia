@@ -29,7 +29,7 @@ if (!isAdmin($adminusername, $adminpassword)){
         <form action="admin.php" method="post">
             <ul class="index">
                 <li>
-                    <input type="submit" class="submit"> </li>
+                    <input type="submit" class="submit" value="Login"> </li>
                 <li>
                     <input type="password" placeholder="Password" name="password" class="text"> </li>
                 <li>

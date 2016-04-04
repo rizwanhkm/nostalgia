@@ -17,7 +17,7 @@ session_destroy();
         <form action="login.php" method="post">
             <ul class="index">
                 <li>
-                    <input type="submit" class="submit"> </li>
+                    <input type="submit" class="submit" value="Login"> </li>
                 <li>
                     <input type="password" placeholder="Webmail Password" name="password" class="text"> </li>
                 <li>
