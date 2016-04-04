@@ -127,7 +127,7 @@ a:active {
 
 .content {
     margin: auto;
-    min-height: 500px;
+    min-height: 480px;
     /*height: 100%;*/
     display: table;
     text-align: center;
