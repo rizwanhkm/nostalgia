@@ -36,9 +36,9 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`settings`, `value`) VALUES
-('password', 'password'),
-('username', 'admin'),
-('voting', '1');
+('password', 'Nostalgia@2016'),
+('username', 'Nostalgia'),
+('voting', '0');
 
 -- --------------------------------------------------------
 
@@ -193,11 +193,6 @@ CREATE TABLE `voting` (
 
 --
 -- Dumping data for table `voting`
---
-
-INSERT INTO `voting` (`rollno`, `Mr.Handsome`, `Ms.Beautiful`, `Mr.Popular`, `Ms.Popular`, `Mr.Flirt`, `Ms.Flirt`, `Mr.Casanova`, `Ms.Trendy`, `Mr.Kanjoos`, `Ms.Kanjoos`, `Mr.Atti`, `Ms.Atti`, `Mr.Sportsperson`, `Ms.Sportsperson`, `Mr.Fundoo`, `Ms.Fundoo`, `Mr.Chaat`, `Ms.Chaat`, `Mr.Magicmoments`, `Ms.Magicmoments`, `Silencer`, `Good Samaritan`, `Jack of All trades`, `Workaholic`, `GPL`, `Lost Puppy`, `The Foodie`, `Night Watchman`, `Stalker`, `Transformer`, `Complaint Box`, `Just Friends`, `Best Couple`, `Section 377`, `101% Attendence`) VALUES
-('111113070', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-
 --
 -- Indexes for dumped tables
 --
