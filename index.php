@@ -19,7 +19,7 @@ session_destroy();
                 <li>
                     <input type="submit" class="submit"> </li>
                 <li>
-                    <input type="password" placeholder="Password" name="password" class="text"> </li>
+                    <input type="password" placeholder="Webmail Password" name="password" class="text"> </li>
                 <li>
                     <input type="text" placeholder="Roll Number" name="username" class="text">
                 </li>
