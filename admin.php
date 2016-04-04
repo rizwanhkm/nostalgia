@@ -17,7 +17,7 @@ if (!isAdmin($adminusername, $adminpassword)){
 <html>
 
 <head>
-    <title>Admin Login | Nostlagia 2016 </title>
+    <title>Admin Login | Nostalgia 2016 </title>
     <link rel="stylesheet" href="style1.css" />
     <script type="text/javascript">
     </script>
