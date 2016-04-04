@@ -5,6 +5,7 @@ session_destroy();
 <html>
 
 <head>
+    <title>Nostlagia 2016</title>
     <link rel="stylesheet" href="style1.css" />
     <script type="text/javascript">
     </script>

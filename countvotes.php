@@ -17,7 +17,7 @@ $query="SELECT * FROM `$admin` where `settings` ='voting' ";
 <html>
 
 <head>
-    <title>Vote Status</title>
+    <title>Vote Status | Nostalgia 2016 </title>
     <link rel="stylesheet" href="style1.css" />
     <script src="jquery1.11.2.js"></script>
     <script>

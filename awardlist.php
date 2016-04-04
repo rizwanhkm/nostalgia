@@ -19,7 +19,7 @@ $query="SELECT * FROM `$admin` where `settings` ='voting' ";
 <html>
 
 <head>
-    <title>Award Nominations</title>
+    <title>Award Nominations | Nostalgia 2016</title>
     <link rel="stylesheet" href="style1.css" />
     <link rel="stylesheet" href="leaderboard.css" />
     <script src="jquery1.11.2.js"></script>

@@ -8,7 +8,7 @@ require 'admin-check.php';
 <html>
 
 <head>
-    <title>Admin Panel</title>
+    <title>Admin Panel | Nostalgia 2016</title>
     <link rel="stylesheet" href="style1.css" />
     <script src="jquery1.11.2.js"></script>
 
