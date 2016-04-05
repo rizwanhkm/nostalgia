@@ -244,10 +244,11 @@ a:active {
 
 .searchResults div {
     font-family: robotolight;
-    font-size: 13px;
-    width: 200px;
+    font-size: 14px;
+    width: 220px;
     word-wrap: break-word;
     text-align: center;
+    cursor: pointer;
 }
 
 .awards {
