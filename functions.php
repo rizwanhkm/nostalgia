@@ -60,10 +60,10 @@ function topNominations($award){
     $index = findAwardIndex($award,$awarddetails);
     $awardFor = $awarddetails[$index][1];
     $nominations=array();
-    $nominations[0]="";
-    $counter=1;
+    // $nominations[0]="";
+    $counter=0;
     $count=array();
-    $count[0]=0;
+    // $count[0]=0;
     if (strlen($awardFor)==1){
          $query="SELECT * FROM `$nomination`";
          $result = $db->query($query) or die ('There was an error during Database Reading [' . $db->error . ']');

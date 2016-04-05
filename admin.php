@@ -58,9 +58,6 @@ if (!isAdmin($adminusername, $adminpassword)){
     session_start();
      $_SESSION['username']=$adminusername;
      $_SESSION['password']=$adminpassword;
-    header("Location:adminpanel.php");
-
-
-
+    header("Location:adminAwardList.php");
       }
 ?>

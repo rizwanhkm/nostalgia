@@ -5,14 +5,7 @@ require 'functions.php';
 require 'admin-check.php';
 
 $award=$_GET['award'];
-$_SESSION[ 'award']=$award;
-$query="SELECT * FROM `$admin` where `settings` ='voting' ";
-    $result = $db->query($query) or die ('There was an error during Database Entry [' . $db->error . ']');
-    $row = $result->fetch_assoc();
-    if ($row['value']==0){
-        header("Location:adminpanel.php");
-    }
-
+$_SESSION['award']=$award;
 ?>
 <html>
 
@@ -23,7 +16,7 @@ $query="SELECT * FROM `$admin` where `settings` ='voting' ";
     <script>
         $(document).ready(function () {
             $("#heading").on("click", function () {
-                window.location = "adminpanel.php";
+                window.location = "adminAwardList.php";
             });
              $(".candidates li").css({
                 "font-family":"robotolight",
@@ -39,15 +32,15 @@ $query="SELECT * FROM `$admin` where `settings` ='voting' ";
     <div class="nav">
         <ul class="left">
             <li><img src="./images/nostlogo.png"> </li>
-            <li class="heading" id="heading">Admin Panel </li>
-            <li class="heading"> ><?php echo $award;?> </li>
+            <li class="heading" id="heading">Admin : Award List </li>
+            <li class="heading">> <?php echo $award;?> </li>
         </ul>
         <ul class="right">
             <li><a href="logout.php">Logout</a>
             </li><li>You are Logged in as Administrator </li>
         </ul>
     </div>
-    <section class="message">Voting Status</section>
+    <section class="message">Vote Status</section>
     <div class="content">
          <ul class="candidates">
              <?php
