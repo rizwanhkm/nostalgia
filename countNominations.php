@@ -38,11 +38,14 @@ $_SESSION[ 'award']=$award;
       <ul class="right">
         <li><a href="logout.php">Logout</a>
         </li><li>You are Logged in as Administrator </li>
+        <li><a href="adminAwardList.php">Award List</a> </li>
       </ul>
     </div>
     <section class="message">Nominations Status</section>
     <div class="content">
       <ul class="candidates">
+        <form action="selectCandidate.php" method="post">
+          <input value="<?php echo $award ?>" hidden name="award">
         <?php
         $topNominations = topNominations ($award);
         $awardIndex = findAwardIndex($award, $awarddetails);
@@ -57,7 +60,12 @@ $_SESSION[ 'award']=$award;
             $candidatename = $student['studentName']." (".$candidate.")";
             if (strcmp($candidatename,"")){
               ?>
-              <li><?php $rowNo = $i + 1; echo $rowNo." : ".$candidatename?> have got <?php echo $topNominations->nominations[$i]; ?> Nominations</li>
+              <li>
+                <input type="checkbox" name="candidates[]" value="<?php echo $candidate ?>">
+                <?php $rowNo = $i + 1; echo $rowNo." : ".$candidatename?> have got <?php echo $topNominations->nominations[$i]; ?>
+                 Nominations
+               </input>
+              </li>
               <?php
             }
           }else{
@@ -77,12 +85,19 @@ $_SESSION[ 'award']=$award;
 
             if (strcmp($candidatename[0],"")){
               ?>
-              <li><?php $rowNo = $i + 1;echo $rowNo." : ".$candidatename?> have got <?php echo $topNominations->nominations[$i]; ?> Nominations</li>
+              <li>
+                <input type="checkbox" name="candidates[]" value="<?php echo $candidate['rollno1']." ".$candidate['rollno2'] ?>">
+                <?php $rowNo = $i + 1;echo $rowNo." : ".$candidatename?> have got <?php echo $topNominations->nominations[$i]; ?>
+                Nominations
+              </input>
+              </li>
               <?php
             }
           }
         }
         ?>
+        <input type="submit" class="submit" value="Submit">
+      </form>
       </ul>
     </div>
     <div class="footer">
