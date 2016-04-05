@@ -25,18 +25,23 @@ require 'admin-check.php';
       <ul class="right">
         <li ><a href="logout.php">Logout</a></li>
         <li>You are Logged in as Admininistrator </li>
+        <li><a href="adminAwardList.php">Award List</a> </li>
       </ul>
     </div>
     <div class="content">
       <div class="adminpanel">
-        <input id ="startvoting" type="button" value="Start Voting" class="submit">
+        <input id ="startvoting" type="button" value="Start Voting" class="submit"><br>
+        <input id ="stopvoting" type="button" value="Stop Voting" class="submit">
         <script>
         $(document).ready(function () {
           $("#heading").on("click", function(){
             window.location ="adminSettings.php";
           });
           $("#startvoting").on("click", function(){
-            window.location="startvoting.php";
+            window.location="startvoting.php?voting=1";
+          });
+          $("#stopvoting").on("click", function(){
+            window.location="startvoting.php?voting=0";
           });
         });
 

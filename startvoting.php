@@ -4,47 +4,24 @@ require 'connect.php';
 require 'functions.php';
 require 'admin-check.php';
 
+$voting = $_GET['voting'];
 
 //Setting to Voting Time.
 $query ="UPDATE `$admin`
- SET `value`='1'
+ SET `value`='$voting'
  WHERE `settings`='voting'";
 $db->query($query) or die ("{ 'status':''error','errorcode': '$db->error' }");
-
-//Populating Candidate List
-for ($i=0; $i<count($awarddetails);$i++){
-    $award = $awarddetails[$i][0];
-    $awardFor= $awarddetails[$i][1];
-    $len = strlen($awardFor);
-    if ($len==1){
-        $nominees = topNominations($award);
-        echo "<br>$award:";
-        print_r($nominees);
-        $totalnominees = count($nominees->nominations)-1;
-        for ($j = 0; ( ($j < 5) && ($j < $totalnominees) ); $j++){
-            $candidate = $nominees->nominees[$j];
-            $candidateindex=$j+1;
-            $query ="UPDATE `$candidates` SET `$award`='$candidate' WHERE `no`='$candidateindex'";
-            echo "<br>$query";
-            $db->query($query) or die ($db->error);
-        }
-    }else if ($len==2){
-        $nominees = topNominations($awarddetails[$i][0]);
-        echo "<br>$award";
-        print_r($nominees);
-        $totalnominees = count($nominees->nominations)-1;
-        echo $totalnominees;
-        for ($j = 0; ( ($j < 5) && ($j < $totalnominees) ); $j++){
-            $candidate = $nominees->nominees[$j]['rollno1']." ".$nominees->nominees[$j]['rollno2'];
-            $candidateindex=$j+1;
-            $query ="UPDATE `$candidates` SET `$award`='$candidate' WHERE `no`='$candidateindex'";
-            echo "<br>$query";
-            $db->query($query) or die ($db->error);
-        }
-    }
-
+if ($voting == 1){
+  $status = "Started";
+}else{
+  $status = "Stoped";
 }
-
-
-
 ?>
+<html>
+<head>
+  <script>
+    alert("Voting <?php echo $status ?>");
+    window.location ='adminSettings.php';
+  </script>
+</head>
+</html>
