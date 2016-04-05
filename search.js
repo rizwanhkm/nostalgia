@@ -91,7 +91,7 @@ function searchfunction(number, rollNo) {
               data = JSON.parse(data);
               console.log(data);
               if (data.status == "nominated") {
-                  $("#searchResultsMsg" + number).html("Nominated.").css({
+                  $("#searchResultsMsg" + number).html("Nominated. <a href ='awardlist.php'>Click Here</a> to go back to Awards List.").css({
                       'color': "#2E7D32"
                   });
               } else {

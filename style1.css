@@ -224,6 +224,7 @@ a:active {
     table-layout: fixed;
 }
 .searchResultsMsg {
+    margin: 10px;
     font-family: robotolight;
     font-size: 14px;
 }
