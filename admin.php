@@ -33,7 +33,7 @@ if (!isAdmin($adminusername, $adminpassword)){
                 <li>
                     <input type="password" placeholder="Password" name="password" class="text"> </li>
                 <li>
-                    <input type="text" placeholder="Roll Number" name="username" class="text">
+                    <input type="text" placeholder="Admin Username" name="username" class="text">
                 </li>
 
         </form>
