@@ -38,6 +38,8 @@ $_SESSION['award']=$award;
         <ul class="right">
             <li><a href="logout.php">Logout</a>
             </li><li>You are Logged in as Administrator </li>
+            <li><a href="adminAwardList.php">Award List</a> </li>
+
         </ul>
     </div>
     <section class="message">Vote Status</section>
@@ -49,6 +51,7 @@ $result = $db->query($query) or die ('There was an error during Database Entry [
 $reply=array();$counter = 0;
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
+
         $awardIndex = findAwardIndex($award, $awarddetails);
         $awardFor = $awarddetails[$awardIndex][1];
         $candidate = $row[$award];
@@ -58,9 +61,12 @@ if ($result->num_rows > 0) {
         $noofvotes=$result_votes->num_rows;
 
         if (strlen($awardFor)==1){
+          if (!$candidate){
+            continue;
+          }
             $query="SELECT * FROM `$rollnodetails` WHERE `rollNo`='$candidate'";
-            $result = $db->query($query) or die ('There was an error during Database Reading [' . $db->error . ']');
-            $student = $result->fetch_assoc();
+            $result_student = $db->query($query) or die ('There was an error during Database Reading [' . $db->error . ']');
+            $student = $result_student->fetch_assoc();
             $candidatename = $student['studentName'];
             if (strcmp($candidatename,"")){
             ?>
@@ -68,16 +74,18 @@ if ($result->num_rows > 0) {
             <?php
             }
             }else{
+                if (!$candidate){
+                  continue;
+                }
                 $candidate = explode(" ", $candidate);
-
                 $query="SELECT * FROM `$rollnodetails` WHERE `rollNo`='$candidate[0]'";
-                $result = $db->query($query) or die ('There was an error during Database Reading [' . $db->error . ']');
-                $student = $result->fetch_assoc();
+                $result_student = $db->query($query) or die ('There was an error during Database Reading [' . $db->error . ']');
+                $student = $result_student->fetch_assoc();
                 $candidatename[0] = $student['studentName'];
 
                 $query="SELECT * FROM `$rollnodetails` WHERE `rollNo`='$candidate[1]'";
-                $result = $db->query($query) or die ('There was an error during Database Reading [' . $db->error . ']');
-                $student = $result->fetch_assoc();
+                $result_student = $db->query($query) or die ('There was an error during Database Reading [' . $db->error . ']');
+                $student = $result_student->fetch_assoc();
                 $candidatename[1] = $student['studentName'];
                 $candidatename = $candidatename[0]." & ".$candidatename[1];
 

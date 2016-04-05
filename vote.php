@@ -90,11 +90,14 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         $awardIndex = findAwardIndex($award, $awarddetails);
         $awardFor = $awarddetails[$awardIndex][1];
-        if (strlen($awardFor)==1){
         $candidate = $row[$award];
+        if (strlen($awardFor)==1){
+          if (!$candidate){
+            continue;
+          }
         $query="SELECT * FROM `$rollnodetails` WHERE `rollNo`='$candidate'";
-        $result = $db->query($query) or die ('There was an error during Database Reading [' . $db->error . ']');
-        $student = $result->fetch_assoc();
+        $result_student = $db->query($query) or die ('There was an error during Database Reading [' . $db->error . ']');
+        $student = $result_student->fetch_assoc();
         $candidatename = $student['studentName'];
         if (strcmp($candidatename,"")){
         ?>
@@ -102,17 +105,20 @@ if ($result->num_rows > 0) {
         <?php
         }
         }else{
-            $candidate = $row[$award];
+          $candidate = $row[$award];
+          if (!$candidate){
+            continue;
+          }
             $candidate = explode(" ", $candidate);
 
             $query="SELECT * FROM `$rollnodetails` WHERE `rollNo`='$candidate[0]'";
-            $result = $db->query($query) or die ('There was an error during Database Reading [' . $db->error . ']');
-            $student = $result->fetch_assoc();
+            $result_student = $db->query($query) or die ('There was an error during Database Reading [' . $db->error . ']');
+            $student = $result_student->fetch_assoc();
             $candidatename[0] = $student['studentName'];
 
             $query="SELECT * FROM `$rollnodetails` WHERE `rollNo`='$candidate[1]'";
-            $result = $db->query($query) or die ('There was an error during Database Reading [' . $db->error . ']');
-            $student = $result->fetch_assoc();
+            $result_student = $db->query($query) or die ('There was an error during Database Reading [' . $db->error . ']');
+            $student = $result_student->fetch_assoc();
             $candidatename[1] = $student['studentName'];
 
             if (strcmp($candidatename[0],"")){
