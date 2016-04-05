@@ -53,45 +53,55 @@ function printResults(results, number) {
     }
 }
 function searchfunction(number, rollNo) {
-    $("#rollnosearch" + number).keyup(function () {
-        var offset = $(this).offset();
-        offset.top -= 50;
-        $('html, body').animate({
-            scrollTop: offset.top
-        });
-        var searchterm = $("#rollnosearch" + number).val();
-        var results = search(searchterm, rollNo);
-        printResults(results, number);
-        $("#searchResults" + number + " div").off();
-        $("#searchResults" + number + " div").on("click", function () {
-            var row = $(this).closest("tr").children();
-            rollno = row[0].textContent;
-            alert("You are Nominating " + row[1].textContent + " for " + award + " Award");
-            $("#searchResults" + number).find("tbody").empty();
-            $("#rollnosearch" + number).val("");
-            url = "nominated.php?rollno" + number + "=" + rollno;
-            console.log(url);
-            $("#searchResultsMsg" + number).show();
-            $("#searchResultsMsg" + number).html("Wait...").css('color', "#2E7D32");
-
-            $.ajax({
-                url: url,
-                method: 'GET'
-            }).done(function (data) {
-                data = JSON.parse(data);
-                console.log(data);
-                if (data.status == "nominated") {
-                    $("#searchResultsMsg" + number).html("Nominated.").css({
-                        'color': "#2E7D32"
-                    });
-                } else {
-                    $("#searchResultsMsg" + number).html("Error.").css('color', "#F44336");
-                }
-            }).fail(function () {
-                $("#searchResultsMsg" + number).html("Error.").css('color', "#F44336");
-            });
-        });
+    var typingTimer;
+    var doneTypingInterval = 200;
+    var $input = $("#rollnosearch" + number);
+    $input.on('keyup', function () {
+      clearTimeout(typingTimer);
+      typingTimer = setTimeout(doneTyping, doneTypingInterval);
     });
+    $input.on('keydown', function () {
+      clearTimeout(typingTimer);
+    });
+    function doneTyping () {
+      var offset = $("#rollnosearch" + number).offset();
+      offset.top -= 50;
+      $('html, body').animate({
+          scrollTop: offset.top
+      },800);
+      var searchterm = $("#rollnosearch" + number).val();
+      var results = search(searchterm, rollNo);
+      printResults(results, number);
+      $("#searchResults" + number + " div").off();
+      $("#searchResults" + number + " div").on("click", function () {
+          var row = $(this).closest("tr").children();
+          rollno = row[0].textContent;
+          alert("You are Nominating " + row[1].textContent + " for " + award + " Award");
+          $("#searchResults" + number).find("tbody").empty();
+          $("#rollnosearch" + number).val("");
+          url = "nominated.php?rollno" + number + "=" + rollno;
+          console.log(url);
+          $("#searchResultsMsg" + number).show();
+          $("#searchResultsMsg" + number).html("Wait...").css('color', "#2E7D32");
+
+          $.ajax({
+              url: url,
+              method: 'GET'
+          }).done(function (data) {
+              data = JSON.parse(data);
+              console.log(data);
+              if (data.status == "nominated") {
+                  $("#searchResultsMsg" + number).html("Nominated.").css({
+                      'color': "#2E7D32"
+                  });
+              } else {
+                  $("#searchResultsMsg" + number).html("Error.").css('color', "#F44336");
+              }
+          }).fail(function () {
+              $("#searchResultsMsg" + number).html("Error.").css('color', "#F44336");
+          });
+      });
+    }
 }
 $(document).ready(function () {
     $.ajax({
