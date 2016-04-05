@@ -47,7 +47,7 @@ INSERT INTO `admin` (`settings`, `value`) VALUES
 --
 
 CREATE TABLE `candidates` (
-  `rollno` varchar(10) NOT NULL,
+  `no` varchar(10) NOT NULL,
   `Mr.Handsome` varchar(45) DEFAULT NULL,
   `Ms.Beautiful` varchar(45) DEFAULT NULL,
   `Mr.Popular` varchar(45) DEFAULT NULL,
