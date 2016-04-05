@@ -58,7 +58,7 @@ $query="SELECT * FROM `$admin` where `settings` ='voting' ";
                 <?php echo $_SESSION[ 'username']; ?> </li>
         </ul>
     </div>
-    <section class="message">Select you Nominee</section>
+    <section class="message">Select your nominee</section>
     <div class="content">
         <script>
                 var award;
