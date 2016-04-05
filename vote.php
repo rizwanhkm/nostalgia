@@ -79,7 +79,7 @@ $query="SELECT * FROM `$admin` where `settings` ='voting' ";
                 <?php echo $_SESSION[ 'username']; ?> </li>
         </ul>
     </div>
-    <section class="message">Select you Candidate</section>
+    <section class="message">Select your candidate</section>
     <div class="content">
         <ul class="candidates">
        <?php
