@@ -74,19 +74,19 @@ $query="SELECT * FROM `$admin` where `settings` ='voting' ";
         <div id='rollno1' class='halfwidth'>
             <input type="text" class="text" id="rollnosearch1" placeholder="Start typing Roll Number or Name">
             <div id="searchResultsMsg1" class="searchResultsMsg"></div>
-            <table id="searchResults1" class="searchResults"></table>
+            <div class="searchResutlsWrapper"> <table id="searchResults1" class="searchResults"></table></div>
         </div>
         <div id='rollno2' class='halfwidth'>
             <input type="text" class="text" id="rollnosearch2" placeholder="Start typing Roll Number or Name">
             <div id="searchResultsMsg2" class="searchResultsMsg"></div>
-            <table id="searchResults2" class="searchResults"></table>
+            <div class="searchResutlsWrapper"> <table id="searchResults2" class="searchResults"></table></div>
         </div>
         <?php }else{ ?>
         <script src="search.js"></script>
 
         <input type="text" class="text" id="rollnosearch1" placeholder="Start typing Roll Number or Name">
         <div id="searchResultsMsg1" class="searchResultsMsg"></div>
-        <table id="searchResults1" class="searchResults"></table>
+        <div class="searchResutlsWrapper"> <table id="searchResults1" class="searchResults"></table></div>
 
 
 
