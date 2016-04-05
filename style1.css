@@ -224,9 +224,9 @@ a:active {
     table-layout: fixed;
 }
 .searchResultsMsg {
-    margin: 10px;
-    font-family: robotolight;
+    font-family: robotoregular;
     font-size: 14px;
+    line-height: 50px;
 }
 
 .searchResults tr:nth-child(odd) td {
@@ -281,7 +281,10 @@ a:active {
     font-family: robotolight;
     font-size: 14px;
     display: inline;
-    cursor: pointer;
+}
+
+.searchResults tr:not(:first-child) td div {
+  cursor: pointer;
 }
 
 .awards {
