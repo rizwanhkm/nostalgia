@@ -240,14 +240,15 @@ a:active {
 
 .searchResults td {
     border: 1px solid #e7e9e8;
+    min-width: 220px;
+    text-align: center;
+
 }
 
 .searchResults div {
     font-family: robotolight;
     font-size: 14px;
-    width: 220px;
-    word-wrap: break-word;
-    text-align: center;
+    display: inline;
     cursor: pointer;
 }
 
