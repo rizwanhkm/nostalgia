@@ -254,29 +254,29 @@ a:active {
 .awards {
     /*    border: 1px solid #000;*/
 
-    display: grid;
+    /*display: grid;*/
 }
 
 .awards div {
     /*    border: 1px solid #000;*/
-
     margin: auto;
-    width: 1300px;
     text-align: center;
 }
 
 .awards li img {
-    height: 60px;
+    height: 70px;
     width: 70px;
 }
 
 .awards li {
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 20px;
+    margin-top:20px;
     line-height: 50px;
-    height: 85px;
-    width: 101px;
+    height: 95px;
+    width: 110px;
+    display: inline-block;
     /*    border: 1px solid #000;*/
 }
 

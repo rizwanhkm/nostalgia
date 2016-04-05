@@ -56,8 +56,8 @@ $(document).ready(function () {
     </div>
 <section class="message">Select an Award to Nominate</section>
     <div class="content">
-<ul class="awards left">
-    <div>
+<ul class="awards">
+
     <?php
         for($i=0;$i<count($awarddetails);$i++){
             $award = strtolower($awarddetails[$i][0]);
@@ -66,7 +66,7 @@ $(document).ready(function () {
             $image = "<img src ='./images/$award.jpg'>";
             echo "<li><img src='./images/award.png'><br>$award2</li>";
         }
-?></div>
+?>
         </ul>
 
     </div>
