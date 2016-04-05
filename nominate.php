@@ -27,7 +27,9 @@ $query="SELECT * FROM `$admin` where `settings` ='voting' ";
     <title>Nominations | Nostalgia 2016</title>
     <link rel="stylesheet" href="style1.css" />
     <script src="jquery1.11.2.js"></script>
+    <script src="fuse.min.js"></script>
     <script src="search.js"></script>
+
     <script>
         $(document).ready(function () {
             $("#heading").on("click", function () {

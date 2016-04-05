@@ -1,27 +1,20 @@
 var rollNoDetails;
 function search(searchterm, rollNo) {
-    // console.log(rollNo.length);
-    var regexp = new RegExp(searchterm, "i"),
-        i,
-        j,
-        counter = 0,
-        results = [],
-        column;
-    for (i = 0; i < rollNo.length; i = i + 1) {
-
-        if (typeof (rollNo[i] != 'undefined')) {
-            for (j = 0; j < Object.keys(rollNo[i]).length; j = j + 1) {
-                column = Object.keys(rollNo[i])[j];
-                if (regexp.test(rollNo[i][column])) {
-                    results[counter] = rollNo[i];
-                    counter = counter + 1;
-                    break;
-                }
-            }
-        }
-    }
-    // console.log(results.length);
-    return results;
+  var results = [],
+    options = {
+      caseSensitive: false,
+      includeScore: false,
+      shouldSort: true,
+      tokenize: false,
+      threshold: 0.6,
+      location: 0,
+      distance: 100,
+      maxPatternLength: 32,
+      keys: ["rollno","name"]
+    };
+  var fuse = new Fuse(rollNo, options);
+  results = fuse.search(searchterm);
+  return results;
 }
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -106,24 +99,19 @@ $(document).ready(function () {
         method: 'GET'
     }).done(function (data) {
         data = JSON.parse(data);
-        // console.log(data);
         rollNoDetails = data;
         if (awardFor == 'M' || awardFor == 'F' || awardFor == 'C') {
         var rollNo = [],
             counter;
         counter = 0;
-        // console.log(awardFor);
 
         for (var i = 0; i < rollNoDetails.length; i++) {
             if ((rollNoDetails[i].gender == awardFor) || (awardFor == 'C')) {
-                // console.log(rollNoDetails[i].gender);
                 rollNo[counter++] = rollNoDetails[i];
             }
         }
-            // console.log(rollNo.length);
         searchfunction(1, rollNo);
     } else {
-        // console.log("asdf");
         var rollNo1 = [],
             rollNo2 = [],
             counter1, counter2;
