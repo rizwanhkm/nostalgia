@@ -12,7 +12,9 @@ $query="SELECT * FROM `$admin` where `settings` ='voting' ";
     if ($row['value']==0){
         header("Location:index.php");
     }
-
+$username  = $_SESSION['username'];
+$awardIndex = findAwardIndex($award, $awarddetails);
+$awardFor = $awarddetails[$awardIndex][1];
 ?>
 <html>
 
@@ -55,7 +57,7 @@ $query="SELECT * FROM `$admin` where `settings` ='voting' ";
     });
 });
             var award;
-            award = '<?php echo $_SESSION['award'];?>';
+            award = '<?php echo $award;?>';
 
         </script>
 </head>
@@ -76,67 +78,81 @@ $query="SELECT * FROM `$admin` where `settings` ='voting' ";
             <li><a href="logout.php">Logout</a>
             </li>
             <li>You are Logged in as
-                <?php echo $_SESSION[ 'username']; ?> </li>
+                <?php echo $username; ?> </li>
         </ul>
     </div>
-    <section class="message">Select your candidate</section>
-    <div class="content">
-        <ul class="candidates">
-       <?php
-$query="SELECT * FROM `$candidates`";
-$result = $db->query($query) or die ('There was an error during Database Entry [' . $db->error . ']');
-$reply=array();$counter = 0;
-if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-        $awardIndex = findAwardIndex($award, $awarddetails);
-        $awardFor = $awarddetails[$awardIndex][1];
-        $candidate = $row[$award];
-        if (strlen($awardFor)==1){
-          if (!$candidate){
-            continue;
-          }
-        $query="SELECT * FROM `$rollnodetails` WHERE `rollNo`='$candidate'";
-        $result_student = $db->query($query) or die ('There was an error during Database Reading [' . $db->error . ']');
-        $student = $result_student->fetch_assoc();
-        $candidatename = $student['studentName'];
-        if (strcmp($candidatename,"")){
-        ?>
-        <li id="<?php echo $row['no']?>"><?php echo $row['no'].":".$candidatename?></li>
-        <?php
-        }
-        }else{
-          $candidate = $row[$award];
-          if (!$candidate){
-            continue;
-          }
+    <section class="message">
+      <?php
+      $sql = "SELECT * FROM `$voting` WHERE `rollno`='$username'";
+      $votingResult = $db->query($sql) or die ('There was an error during Database Entry [' . $db->error . ']');
+      if ($votingResult->num_rows == 1){
+        $votingRow = $votingResult->fetch_assoc();
+        $candidateIndex = $votingRow[$award];
+        if (isset($candidateIndex)){
+          $sql = "SELECT * FROM `$candidates` WHERE `no`='$candidateIndex'";
+          $candidateResult = $db->query($sql) or die ('There was an error during Databsase Entry [' . $db->error . ']');
+          $candidateRow = $candidateResult->fetch_assoc();
+          $rollNo = $candidateRow[$award];
+          if (strlen($awardFor)==1){
+            $votedCandidate = getNameOf($rollNo);
+          }else {
+            $candidate = $row[$award];
+            if (!$candidate){
+              continue;
+            }
             $candidate = explode(" ", $candidate);
-
-            $query="SELECT * FROM `$rollnodetails` WHERE `rollNo`='$candidate[0]'";
-            $result_student = $db->query($query) or die ('There was an error during Database Reading [' . $db->error . ']');
-            $student = $result_student->fetch_assoc();
-            $candidatename[0] = $student['studentName'];
-
-            $query="SELECT * FROM `$rollnodetails` WHERE `rollNo`='$candidate[1]'";
-            $result_student = $db->query($query) or die ('There was an error during Database Reading [' . $db->error . ']');
-            $student = $result_student->fetch_assoc();
-            $candidatename[1] = $student['studentName'];
-
-            if (strcmp($candidatename[0],"")){
-        ?>
-            <li id="<?php echo $row['no']?>"><?php echo $row['no']." : ".$candidatename[0] ?> & <?php echo $candidatename[1] ?> </li>
+            $candidatename = array();
+            $candidatename[0] = getNameOf($candidate[0]);
+            $candidatename[1] = getNameOf($candidate[1]);
+            $votedCandidate = $candidatename[0]." & ".$candidatename[1];
+          }
+          echo "You have voted for <b>". $votedCandidate . "</b>. Select a candidate to change your vote.";
+        }else {
+          echo "Select your candidate";
+        }
+      }else{
+        echo "Select your candidate";
+      }
+       ?>
+    </section>
+    <div class="content">
+      <ul class="candidates">
         <?php
+        $query="SELECT * FROM `$candidates`";
+        $result = $db->query($query) or die ('There was an error during Database Entry [' . $db->error . ']');
+        $reply=array();$counter = 0;
+        if ($result->num_rows > 0) {
+          while($row = $result->fetch_assoc()) {
+            $rollNo = $row[$award];
+            if (strlen($awardFor)==1){
+              if (!$rollNo){
+                continue;
+              }
+              $candidatename = getNameOf($rollNo);
+              if (strcmp($candidatename,"")){
+                ?>
+                <li id="<?php echo $row['no']?>"><?php echo $row['no'].":".$candidatename?></li>
+                <?php
+              }
+            }else{
+              $candidate = $row[$award];
+              if (!$candidate){
+                continue;
+              }
+              $candidate = explode(" ", $candidate);
+              $candidatename = array();
+              $candidatename[0] = getNameOf($candidate[0]);
+              $candidatename[1] = getNameOf($candidate[1]);
+              if (strcmp($candidatename[0],"")){
+                ?>
+                <li id="<?php echo $row['no']?>"><?php echo $row['no']." : ".$candidatename[0] ?> & <?php echo $candidatename[1] ?> </li>
+                <?php
+              }
+            }
+          }
         }
-
-        }
-
-
-    }
-
-}
-
-?>
-
-</ul>
+        ?>
+      </ul>
     </div>
     <div class="footer">
         <div class="valign-wrapper">© Nostalgia 2016 | MADE WITH <span style="color:#ef5350 ">  ❤</span> by <a href="https://www.facebook.com/delta.nit.trichy/">DELTA FORCE</a></div>
