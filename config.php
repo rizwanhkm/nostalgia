@@ -39,7 +39,11 @@ $awarddetails = array
     array("Just Friends","MF"),
     array("Best Couple","MF"),
     array("Section 377","MM"),
-    array("101% Attendence","C")
+    array("101% Attendence","C"),
+    array("Bench Couple","MF"),
+    array("Gilma God","C"),
+    array("Mr High-Senberg","M"),
+
 );
 
 $nomination="nominations";

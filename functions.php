@@ -1,5 +1,4 @@
 <?php
-require 'config.php';
 
 function findAwardIndex($award,$awarddetails){
     $index;
@@ -60,10 +59,10 @@ function topNominations($award){
     $index = findAwardIndex($award,$awarddetails);
     $awardFor = $awarddetails[$index][1];
     $nominations=array();
-    // $nominations[0]="";
-    $counter=0;
+    $nominations[0]="";
+    $counter=1;
     $count=array();
-    // $count[0]=0;
+    $count[0]=0;
     if (strlen($awardFor)==1){
          $query="SELECT * FROM `$nomination`";
          $result = $db->query($query) or die ('There was an error during Database Reading [' . $db->error . ']');
@@ -72,7 +71,12 @@ function topNominations($award){
                  continue;
              }
              $key = array_search($row[$award],$nominations);
-             if ($key) {
+            //  echo $key. "found for $row[$award]<br>";
+            //  print_r($nominations);
+            //  echo "<br>";
+            //  print_r($count);
+            //  echo "<br>";
+             if (!($key == "")) {
                  $count[$key]++;
              }else{
                  $nominations[$counter] = $row[$award];
@@ -178,4 +182,13 @@ function topNominations($award){
     return $reply;
 }
 
+function getNameOf($rollNo){
+  require 'connect.php';
+  require 'config.php';
+  $query="SELECT * FROM `$rollnodetails` WHERE `rollNo`='$rollNo'";
+  $result = $db->query($query) or die ('There was an error during Database Reading [' . $db->error . ']');
+  $student = $result->fetch_assoc();
+  $candidatename = $student['studentName'];
+  return $candidatename;
+}
 ?>

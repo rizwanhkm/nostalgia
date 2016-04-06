@@ -53,16 +53,13 @@ $_SESSION[ 'award']=$award;
 
         for($i = 0; $i < count($topNominations->nominees); $i++){
           if (strlen($awardFor)==1){
-            $candidate = $topNominations->nominees[$i];
-            $query="SELECT * FROM `$rollnodetails` WHERE `rollNo`='$candidate'";
-            $result = $db->query($query) or die ('There was an error during Database Reading [' . $db->error . ']');
-            $student = $result->fetch_assoc();
-            $candidatename = $student['studentName']." (".$candidate.")";
+            $rollNo = $topNominations->nominees[$i];
+            $candidatename = getNameOf($rollNo);
             if (strcmp($candidatename,"")){
               ?>
               <li>
-                <input type="checkbox" name="candidates[]" value="<?php echo $candidate ?>">
-                <?php $rowNo = $i + 1; echo $rowNo." : ".$candidatename?> have got <?php echo $topNominations->nominations[$i]; ?>
+                <input type="checkbox" name="candidates[]" value="<?php echo $rollNo ?>">
+                <?php $rowNo = $i + 1; echo $rowNo." : ".$candidatename." (".$rollNo.")";?> have got <?php echo $topNominations->nominations[$i]; ?>
                  Nominations
                </input>
               </li>
@@ -71,23 +68,18 @@ $_SESSION[ 'award']=$award;
           }else{
             $candidate = array();
             $candidate = $topNominations->nominees[$i];
+            $rollNo1 = $candidate['rollno1'];
+            $rollNo2 = $candidate['rollno2'];
 
-            $query="SELECT * FROM `$rollnodetails` WHERE `rollNo`='$candidate[rollno1]'";
-            $result = $db->query($query) or die ('There was an error during Database Reading [' . $db->error . ']');
-            $student = $result->fetch_assoc();
-            $candidatename[0] = $student['studentName'];
-
-            $query="SELECT * FROM `$rollnodetails` WHERE `rollNo`='$candidate[rollno2]'";
-            $result = $db->query($query) or die ('There was an error during Database Reading [' . $db->error . ']');
-            $student = $result->fetch_assoc();
-            $candidatename[1] = $student['studentName'];
-            $candidatename = $candidatename[0]." (".$candidate['rollno1'].") & ".$candidatename[1]." (".$candidate['rollno2'].")";
+            $candidatename = array();
+            $candidatename[0] = getNameOf($rollNo1);
+            $candidatename[1] = getNameOf($rollNo2);
 
             if (strcmp($candidatename[0],"")){
               ?>
               <li>
                 <input type="checkbox" name="candidates[]" value="<?php echo $candidate['rollno1']." ".$candidate['rollno2'] ?>">
-                <?php $rowNo = $i + 1;echo $rowNo." : ".$candidatename?> have got <?php echo $topNominations->nominations[$i]; ?>
+                <?php $rowNo = $i + 1;echo $rowNo." : ".$candidatename[0]." (".$rollNo1.") & ".$candidatename[1]." (".$rollNo2.")"?> have got <?php echo $topNominations->nominations[$i]; ?>
                 Nominations
               </input>
               </li>

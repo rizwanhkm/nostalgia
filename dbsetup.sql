@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.6.0
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 20, 2016 at 06:27 PM
--- Server version: 10.1.10-MariaDB
--- PHP Version: 5.6.15
+-- Host: localhost
+-- Generation Time: Apr 06, 2016 at 09:53 AM
+-- Server version: 10.0.23-MariaDB
+-- PHP Version: 5.6.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -31,15 +31,6 @@ CREATE TABLE `admin` (
   `value` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `admin`
---
-
-INSERT INTO `admin` (`settings`, `value`) VALUES
-('password', 'Nostalgia@2016'),
-('username', 'Nostalgia'),
-('voting', '0');
-
 -- --------------------------------------------------------
 
 --
@@ -47,7 +38,7 @@ INSERT INTO `admin` (`settings`, `value`) VALUES
 --
 
 CREATE TABLE `candidates` (
-  `no` varchar(10) NOT NULL,
+  `no` varchar(10) NOT NULL DEFAULT '',
   `Mr.Handsome` varchar(45) DEFAULT NULL,
   `Ms.Beautiful` varchar(45) DEFAULT NULL,
   `Mr.Popular` varchar(45) DEFAULT NULL,
@@ -82,7 +73,10 @@ CREATE TABLE `candidates` (
   `Just Friends` varchar(45) DEFAULT NULL,
   `Best Couple` varchar(45) DEFAULT NULL,
   `Section 377` varchar(45) DEFAULT NULL,
-  `101% Attendence` varchar(45) DEFAULT NULL
+  `101% Attendence` varchar(45) DEFAULT NULL,
+  `Bench Couple` varchar(45) NOT NULL,
+  `Gilma God` varchar(45) NOT NULL,
+  `Mr High-Senberg` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -130,7 +124,11 @@ CREATE TABLE `nominations` (
   `Best Couple_2` varchar(45) DEFAULT NULL,
   `Section 377_1` varchar(45) DEFAULT NULL,
   `Section 377_2` varchar(45) DEFAULT NULL,
-  `101% Attendence` varchar(45) DEFAULT NULL
+  `101% Attendence` varchar(45) DEFAULT NULL,
+  `Bench Couple_1` varchar(45) NOT NULL,
+  `Bench Couple_2` varchar(45) NOT NULL,
+  `Gilma God` varchar(45) NOT NULL,
+  `Mr High-Senberg` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -188,11 +186,12 @@ CREATE TABLE `voting` (
   `Just Friends` varchar(45) DEFAULT NULL,
   `Best Couple` varchar(45) DEFAULT NULL,
   `Section 377` varchar(45) DEFAULT NULL,
-  `101% Attendence` varchar(45) DEFAULT NULL
+  `101% Attendence` varchar(45) DEFAULT NULL,
+  `Bench Couple` varchar(45) NOT NULL,
+  `Gilma God` varchar(45) NOT NULL,
+  `Mr High-Senberg` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `voting`
 --
 -- Indexes for dumped tables
 --
@@ -207,7 +206,7 @@ ALTER TABLE `admin`
 -- Indexes for table `candidates`
 --
 ALTER TABLE `candidates`
-  ADD PRIMARY KEY (`rollno`);
+  ADD PRIMARY KEY (`no`);
 
 --
 -- Indexes for table `nominations`
