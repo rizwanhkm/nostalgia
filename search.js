@@ -76,6 +76,9 @@ function searchfunction(number, rollNo) {
       $("#searchResults" + number + " div").on("click", function () {
           var row = $(this).closest("tr").children();
           rollno = row[0].textContent;
+          if(rollno === "Rollno"){
+            return;
+          }
           alert("You are Nominating " + row[1].textContent + " for " + award + " Award");
           $("#searchResults" + number).find("tbody").empty();
           $("#rollnosearch" + number).val("");
