@@ -58,7 +58,14 @@ $query="SELECT * FROM `$admin` where `settings` ='voting' ";
                 <?php echo $_SESSION[ 'username']; ?> </li>
         </ul>
     </div>
-    <section class="message">Select your nominee</section>
+    <section class="message">
+      
+      Select your nominee<br>
+      <span class="info">
+        (Note: One person can only nominate once for a particular award. If attempted multiple times, only last nomination will be considered.)
+      </span>
+
+    </section>
     <div class="content">
         <script>
                 var award;

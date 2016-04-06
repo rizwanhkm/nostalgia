@@ -217,7 +217,7 @@ a:active {
 
 }
 .searchResults {
-    margin-top: 20px;
+    /*margin-top: 20px;*/
     border-collapse: collapse;
     margin-left: auto;
     margin-right: auto;
@@ -322,7 +322,9 @@ a:active {
     font-family: robotolight;
     font-size: 16px;
 }
-
+.info {
+  font-size: 12px;
+}
 .index {
     width: 100%;
 }
