@@ -96,11 +96,7 @@ $awardFor = $awarddetails[$awardIndex][1];
           if (strlen($awardFor)==1){
             $votedCandidate = getNameOf($rollNo);
           }else {
-            $candidate = $row[$award];
-            if (!$candidate){
-              continue;
-            }
-            $candidate = explode(" ", $candidate);
+            $candidate = explode(" ", $rollNo);
             $candidatename = array();
             $candidatename[0] = getNameOf($candidate[0]);
             $candidatename[1] = getNameOf($candidate[1]);
