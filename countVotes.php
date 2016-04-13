@@ -80,6 +80,7 @@ if ($result->num_rows > 0) {
                 $candidate = explode(" ", $candidate);
                 $query="SELECT * FROM `$rollnodetails` WHERE `rollNo`='$candidate[0]'";
                 $result_student = $db->query($query) or die ('There was an error during Database Reading [' . $db->error . ']');
+								$candidatename = array();
                 $student = $result_student->fetch_assoc();
                 $candidatename[0] = $student['studentName'];
 
