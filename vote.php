@@ -25,7 +25,7 @@ $awardFor = $awarddetails[$awardIndex][1];
     <script>
         $(document).ready(function () {
     $("#heading").on("click", function(){
-        window.location ="awardlist.php";
+        window.location ="awardlistvoting.php";
     });
             $(".candidates li").css({
                 "font-family":"robotolight",

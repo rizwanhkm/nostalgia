@@ -23,7 +23,7 @@ $query="SELECT * FROM `$admin` where `settings` ='voting' ";
 
 $(document).ready(function () {
     $("#heading").on("click", function(){
-        window.location ="awardlist.php";
+        window.location ="awardlistvoting.php";
     });
     $(".awards li").on("click", function(){
         var award = encodeURIComponent( $(this).text());
