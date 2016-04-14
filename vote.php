@@ -88,7 +88,7 @@ $awardFor = $awarddetails[$awardIndex][1];
       if ($votingResult->num_rows == 1){
         $votingRow = $votingResult->fetch_assoc();
         $candidateIndex = $votingRow[$award];
-        if (isset($candidateIndex)){
+        if (isset($candidateIndex) && $candidateIndex != ""){
           $sql = "SELECT * FROM `$candidates` WHERE `no`='$candidateIndex'";
           $candidateResult = $db->query($sql) or die ('There was an error during Databsase Entry [' . $db->error . ']');
           $candidateRow = $candidateResult->fetch_assoc();
