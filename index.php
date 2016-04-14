@@ -23,9 +23,8 @@ session_destroy();
                 <li>
                     <input type="text" placeholder="Roll Number" name="username" class="text">
                 </li>
-
+            </ul>
         </form>
-        </ul>
     </div>
     <div class="content">
         <div class="valign-wrapper">

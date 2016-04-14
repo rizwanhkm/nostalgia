@@ -45,7 +45,7 @@ $awardFor = $awarddetails[$awardIndex][1];
                 data = JSON.parse(data);
                 console.log(data);
                 if (data.status == "voted") {
-                    $(".message").html("Voted for " + data.candidate).css({
+                    $(".message").html("Voted for " + data.candidate + ". <a href ='awardlistvoting.php'>Click Here</a> to go back to Awards List.").css({
                         'color': "#2E7D32"
                     });
                 } else {
