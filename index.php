@@ -16,13 +16,9 @@ session_destroy();
     <div class="nav">
         <form action="login.php" method="post">
             <ul class="index">
-                <li>
-                    <input type="submit" class="submit" value="Login"> </li>
-                <li>
-                    <input type="password" placeholder="Webmail Password" name="password" class="text"> </li>
-                <li>
-                    <input type="text" placeholder="Roll Number" name="username" class="text">
-                </li>
+                <li><input type="text" placeholder="Roll Number" name="username" class="text"> </li>
+                <li><input type="password" placeholder="Webmail Password" name="password" class="text"> </li>
+                <li><input type="submit" class="submit" value="Login"> </li>
             </ul>
         </form>
     </div>
