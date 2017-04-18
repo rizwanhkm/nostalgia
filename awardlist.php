@@ -55,6 +55,7 @@ $(document).ready(function () {
         </ul>
     </div>
 <section class="message">Select an Award to Nominate</section>
+<section class="message"><a href="mynominations.php">Click here to view your submitted nominations</a></section>
     <div class="content">
 <ul class="awards">
 
