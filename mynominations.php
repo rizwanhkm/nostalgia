@@ -29,7 +29,7 @@ $query="SELECT * FROM `$admin` where `settings` ='voting' ";
 
 $(document).ready(function () {
     $("#heading").on("click", function(){
-        window.location ="mynominations.php";
+        window.location ="awardlist.php";
     });
     $(".candidates li").css({
       "font-family":"robotolight",
@@ -48,13 +48,17 @@ $(document).ready(function () {
 
     <div class="nav">
         <ul class="left">
-            <li><img src="./images/nostlogo.png"></li>
-            <li class="heading" id="heading"a>My Nominations </li>
+            <li><img src="./images/nostlogo.png">
+            </li>
+            <li class="heading" id="heading">Award Nomination </li>
+            <li class="heading"> >
+                My Nominations </li>
         </ul>
         <ul class="right">
-            <li ><a href="logout.php">Logout</a></li>
+            <li><a href="logout.php">Logout</a>
+            </li>
             <li>You are Logged in as
-                <?php echo $_SESSION['username']; ?> </li>
+                <?php echo $_SESSION[ 'username']; ?> </li>
         </ul>
     </div>
 <section class="message"><b><u>List of nominations you have submitted</b></u></section>
