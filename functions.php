@@ -191,4 +191,13 @@ function getNameOf($rollNo){
   $candidatename = $student['studentName'];
   return $candidatename;
 }
+
+function getMyNominations($rollno){
+    require 'connect.php';
+    require 'config.php';
+    $query = "SELECT * FROM nominations WHERE rollno = $rollno";
+    $result = $db->query($query) or die ('There was an error querying.');
+    $student = $result->fetch_assoc();
+    return $student;
+}
 ?>
