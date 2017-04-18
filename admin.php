@@ -28,13 +28,9 @@ if (!isAdmin($adminusername, $adminpassword)){
     <div class="nav">
         <form action="admin.php" method="post">
             <ul class="index">
-                <li>
-                    <input type="submit" class="submit" value="Login"> </li>
-                <li>
-                    <input type="password" placeholder="Password" name="password" class="text"> </li>
-                <li>
-                    <input type="text" placeholder="Admin Username" name="username" class="text">
-                </li>
+                <li> <input type="text" placeholder="Admin Username" name="username" class="text"> </li>
+                <li> <input type="password" placeholder="Password" name="password" class="text"> </li>
+                <li> <input type="submit" class="submit" value="Login"> </li>
 
         </form>
         </ul>
