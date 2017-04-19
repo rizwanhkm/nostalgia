@@ -23,41 +23,44 @@ $awardFor = $awarddetails[$awardIndex][1];
     <link rel="stylesheet" href="style1.css" />
     <script src="jquery1.11.2.js"></script>
     <script>
-        $(document).ready(function () {
-    $("#heading").on("click", function(){
-        window.location ="awardlistvoting.php";
+$(document).ready(function () {
+  $("#heading").on("click", function(){
+    window.location ="awardlistvoting.php";
     });
-            $(".candidates li").css({
-                "font-family":"robotolight",
-                "font-size":"17px",
-                "margin":"20px"
-            });
+    $(".candidates li").css({
+    "font-family":"robotolight",
+      "font-size":"17px",
+      "margin":"20px"
+    });
+    $('img').error(function(){
+      $(this).attr('src', 'images/profilepic.gif');
+    });
 
     $(".candidates li").on("click", function(){
-        var candidate=$(this).attr('id');
-        console.log(candidate);
-        url = "voted.php?candidate="+candidate;
-        console.log(candidate);
-        $.ajax({
-                url: url,
-                method: 'GET'
+      var candidate=$(this).attr('id');
+      console.log(candidate);
+      url = "voted.php?candidate="+candidate;
+      console.log(candidate);
+      $.ajax({
+      url: url,
+        method: 'GET'
             }).done(function (data) {
-                data = JSON.parse(data);
-                console.log(data);
-                if (data.status == "voted") {
-                    $(".message").html("Voted for " + data.candidate + ". <a href ='awardlistvoting.php'>Click Here</a> to go back to Awards List.").css({
-                        'color': "#2E7D32"
+              data = JSON.parse(data);
+              console.log(data);
+              if (data.status == "voted") {
+                $(".message").html("Voted for " + data.candidate + ". <a href ='awardlistvoting.php'>Click Here</a> to go back to Awards List.").css({
+                'color': "#2E7D32"
                     });
                 } else {
-                    $(".message").html("Error.").css('color', "#F44336");
+                  $(".message").html("Error.").css('color', "#F44336");
                 }
             }).fail(function () {
-                $(".message").html("Error.").css('color', "#F44336");
+              $(".message").html("Error.").css('color', "#F44336");
             });
     });
 });
-            var award;
-            award = '<?php echo $award;?>';
+var award;
+award = '<?php echo $award;?>';
 
         </script>
 </head>
