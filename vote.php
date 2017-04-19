@@ -127,7 +127,7 @@ $awardFor = $awarddetails[$awardIndex][1];
               $candidatename = getNameOf($rollNo);
               if (strcmp($candidatename,"")){
                 ?>
-                <li id="<?php echo $row['no']?>"><?php echo $row['no'].":".$candidatename?></li>
+                  <li id="<?php echo $row['no']?>"><?php echo "<img class='candidatepic' src ='https://rembook.nitt.edu/profilepic/$rollNo.jpg'> ".$candidatename;?></li>
                 <?php
               }
             }else{
@@ -141,7 +141,7 @@ $awardFor = $awarddetails[$awardIndex][1];
               $candidatename[1] = getNameOf($candidate[1]);
               if (strcmp($candidatename[0],"")){
                 ?>
-                <li id="<?php echo $row['no']?>"><?php echo $row['no']." : ".$candidatename[0] ?> & <?php echo $candidatename[1] ?> </li>
+                <li id="<?php echo $row['no']?>"><?php echo "<img class='candidatepicleft' src='https://rembook.nitt.edu/profilepic/$candidate[0].jpg'> <img class='candidatepicright' src='https://rembook.nitt.edu/profilepic/$candidate[1].jpg'> ".$candidatename[0] ?> & <?php echo $candidatename[1] ?> </li>
                 <?php
               }
             }
