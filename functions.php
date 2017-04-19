@@ -189,7 +189,7 @@ function getNameOf($rollNo){
   $result = $db->query($query) or die ('There was an error during Database Reading [' . $db->error . ']');
   $student = $result->fetch_assoc();
   $candidatename = $student['studentName'];
-  return $candidatename;
+  return ucwords(strtolower($candidatename));
 }
 
 function getMyNominations($rollno){
