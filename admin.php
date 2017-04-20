@@ -17,7 +17,7 @@ if (!isAdmin($adminusername, $adminpassword)){
 <html>
 
 <head>
-    <title>Admin Login | Nostalgia 2016 </title>
+    <title>Admin Login | Nostalgia 2017 </title>
     <link rel="stylesheet" href="style1.css" />
     <script type="text/javascript">
     </script>
@@ -42,7 +42,7 @@ if (!isAdmin($adminusername, $adminpassword)){
     </div>
     </div>
     <div class="footer">
-            <div class="valign-wrapper">© Nostalgia 2016 | MADE WITH <span style="color:#ef5350 ">  ❤</span> BY <a href="https://www.facebook.com/delta.nit.trichy/">DELTA FORCE</a></div>
+            <div class="valign-wrapper">© Nostalgia 2017 | MADE WITH <span style="color:#ef5350 ">  ❤</span> BY <a href="https://www.facebook.com/delta.nit.trichy/">DELTA FORCE</a></div>
     </div>
   </div>
 </body>

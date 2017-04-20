@@ -5,7 +5,7 @@ session_destroy();
 <html>
 
 <head>
-    <title>Nostalgia 2016</title>
+    <title>Nostalgia 2017</title>
     <link rel="stylesheet" href="style1.css" />
     <script type="text/javascript">
     </script>
@@ -29,7 +29,7 @@ session_destroy();
     </div>
     </div>
     <div class="footer">
-        <div class="valign-wrapper">© Nostalgia 2016 | MADE WITH <span style="color:#ef5350 ">  ❤</span> by <a href="https://www.facebook.com/delta.nit.trichy/">DELTA FORCE</a></div>
+        <div class="valign-wrapper">© Nostalgia 2017 | MADE WITH <span style="color:#ef5350 ">  ❤</span> by <a href="https://www.facebook.com/delta.nit.trichy/">DELTA FORCE</a></div>
     </div>
 </div>
 </body>

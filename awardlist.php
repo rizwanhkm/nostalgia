@@ -3,6 +3,7 @@ require 'session-check.php';
 require 'functions.php';
 require 'connect.php';
 require 'config.php';
+header("Location:closed.php");
 $query="SELECT * FROM `$admin` where `settings` ='voting' ";
     $result = $db->query($query) or die ('There was an error during Database Entry [' . $db->error . ']');
     $row = $result->fetch_assoc();
@@ -19,7 +20,7 @@ $query="SELECT * FROM `$admin` where `settings` ='voting' ";
 <html>
 
 <head>
-    <title>Award Nominations | Nostalgia 2016</title>
+    <title>Award Nominations | Nostalgia 2017</title>
     <link rel="stylesheet" href="style1.css" />
     <link rel="stylesheet" href="leaderboard.css" />
     <script src="jquery1.11.2.js"></script>
@@ -72,7 +73,7 @@ $(document).ready(function () {
 
     </div>
     <div class="footer">
-            <div class="valign-wrapper">© Nostalgia 2016 | MADE WITH <span style="color:#ef5350 ">  ❤</span> BY <a href="https://www.facebook.com/delta.nit.trichy/">DELTA FORCE</a></div>
+            <div class="valign-wrapper">© Nostalgia 2017 | MADE WITH <span style="color:#ef5350 ">  ❤</span> BY <a href="https://www.facebook.com/delta.nit.trichy/">DELTA FORCE</a></div>
     </div>
   </div>
 

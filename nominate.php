@@ -3,6 +3,7 @@ require 'session-check.php';
 require 'connect.php';
 require 'config.php';
 require 'functions.php';
+header("Location:closed.php");
 $award=$_GET['award'];
 $award2=strtolower($_GET['award']);
 $award2=preg_replace( "/\s+/", "", $award2);
@@ -24,7 +25,7 @@ $query="SELECT * FROM `$admin` where `settings` ='voting' ";
 <html>
 
 <head>
-    <title>Nominations | Nostalgia 2016</title>
+    <title>Nominations | Nostalgia 2017</title>
     <link rel="stylesheet" href="style1.css" />
     <script src="jquery1.11.2.js"></script>
     <script src="fuse.min.js"></script>
@@ -101,7 +102,7 @@ $query="SELECT * FROM `$admin` where `settings` ='voting' ";
 
     </div>
     <div class="footer">
-        <div class="valign-wrapper">© Nostalgia 2016 | MADE WITH <span style="color:#ef5350 ">  ❤</span> by <a href="https://www.facebook.com/delta.nit.trichy/">DELTA FORCE</a></div>
+        <div class="valign-wrapper">© Nostalgia 2017 | MADE WITH <span style="color:#ef5350 ">  ❤</span> by <a href="https://www.facebook.com/delta.nit.trichy/">DELTA FORCE</a></div>
     </div>
 </div>
 </body>

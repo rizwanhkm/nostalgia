@@ -44,6 +44,7 @@ $awarddetails = array
     array("Bench Couple","MF"),
     array("Gilma God","C"),
     array("Mr High-Senberg","M"),
+    array("Ms High-Senberg","F"),
 
 );
 
