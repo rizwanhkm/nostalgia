@@ -70,7 +70,7 @@ if ($result->num_rows > 0) {
             $candidatename = $student['studentName'];
             if (strcmp($candidatename,"")){
             ?>
-            <li><?php echo $row['no']." : ".$candidatename?> have got <?php echo $noofvotes; ?> Votes</li>
+            <li><?php echo " <img class='candidatepic' src ='https://rembook.nitt.edu/profilepic/$candidate.jpg'> ".$candidatename?> have got <?php echo $noofvotes; ?> Votes</li>
             <?php
             }
             }else{
@@ -92,7 +92,7 @@ if ($result->num_rows > 0) {
 
                 if (strcmp($candidatename[0],"")){
             ?>
-                   <li><?php echo $row['no']." : ".$candidatename?> have got <?php echo $noofvotes; ?> Votes</li>
+                   <li><?php echo "  <img class='candidatepicleft' src='https://rembook.nitt.edu/profilepic/$candidate[0].jpg'> <img class='candidatepicright' src='https://rembook.nitt.edu/profilepic/$candidate[1].jpg'> ".$candidatename?> have got <?php echo $noofvotes; ?> Votes</li>
 
             <?php
                 }
