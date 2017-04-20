@@ -10,7 +10,7 @@ $_SESSION[ 'award']=$award;
 <html>
 
 <head>
-  <title>Nomination Status | Nostalgia 2016 </title>
+  <title>Nomination Status | Nostalgia 2017 </title>
   <link rel="stylesheet" href="style1.css" />
   <script src="jquery1.11.2.js"></script>
   <script>
@@ -93,7 +93,7 @@ $_SESSION[ 'award']=$award;
       </ul>
     </div>
     <div class="footer">
-      <div class="valign-wrapper">© Nostalgia 2016 | MADE WITH <span style="color:#ef5350 ">  ❤</span> BY <a href="https://www.facebook.com/delta.nit.trichy/">DELTA FORCE</a></div>
+      <div class="valign-wrapper">© Nostalgia 2017 | MADE WITH <span style="color:#ef5350 ">  ❤</span> BY <a href="https://www.facebook.com/delta.nit.trichy/">DELTA FORCE</a></div>
     </div>
   </div>
 </body>
